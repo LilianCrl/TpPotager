@@ -10,12 +10,14 @@ import javax.persistence.OneToMany;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
 @NoArgsConstructor
+@ToString(exclude = "lstPdcs")
 public class Plante {
-	
+
 	@Id
 	@GeneratedValue
 	private Integer idPlante;
@@ -23,11 +25,10 @@ public class Plante {
 	private String typePlante;
 	private String variete;
 	private Double surfaceOccupee;
-	
+
 	@OneToMany(mappedBy = "plante")
-	private List<Plante> lstPlante = new ArrayList<>();
-	
-	
+	private List<PlanteDansCarre> lstPdcs = new ArrayList<>();
+
 	public Plante(String nomPlante, String typePlante, String variete, Double surfaceOccupee) {
 		super();
 		this.nomPlante = nomPlante;
@@ -35,7 +36,5 @@ public class Plante {
 		this.variete = variete;
 		this.surfaceOccupee = surfaceOccupee;
 	}
-	
-	
 
 }

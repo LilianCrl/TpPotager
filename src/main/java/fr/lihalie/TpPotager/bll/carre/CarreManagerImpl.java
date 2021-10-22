@@ -2,6 +2,8 @@ package fr.lihalie.TpPotager.bll.carre;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,7 @@ public class CarreManagerImpl implements CarreManager {
 	CarreDAO dao;
 
 	@Override
+	@Transactional
 	public void addCarre(Carre carre) {
 		dao.save(carre);
 	}
@@ -25,6 +28,7 @@ public class CarreManagerImpl implements CarreManager {
 	}
 
 	@Override
+	@Transactional
 	public void updateCarre(Carre carre) {
 		dao.save(carre);
 	}

@@ -2,6 +2,8 @@ package fr.lihalie.TpPotager.bll.action;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,7 @@ public class ActionManagerImpl implements ActionManager {
 	ActionDAO dao;
 
 	@Override
+	@Transactional
 	public void addAction(Action action) {
 		dao.save(action);
 	}
@@ -25,6 +28,7 @@ public class ActionManagerImpl implements ActionManager {
 	}
 
 	@Override
+	@Transactional
 	public void updateAction(Action action) {
 		dao.save(action);
 	}
