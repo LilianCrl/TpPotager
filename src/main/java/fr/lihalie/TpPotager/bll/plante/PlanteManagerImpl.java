@@ -2,6 +2,8 @@ package fr.lihalie.TpPotager.bll.plante;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,9 @@ public class PlanteManagerImpl implements PlanteManager {
 	@Autowired
 	PlanteDAO dao;
 
+	
 	@Override
+	@Transactional
 	public void addPlante(Plante plante) {
 		dao.save(plante);
 	}
@@ -25,6 +29,7 @@ public class PlanteManagerImpl implements PlanteManager {
 	}
 
 	@Override
+	@Transactional
 	public void updatePlante(Plante plante) {
 		dao.save(plante);
 	}

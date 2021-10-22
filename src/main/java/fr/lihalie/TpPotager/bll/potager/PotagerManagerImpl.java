@@ -2,6 +2,8 @@ package fr.lihalie.TpPotager.bll.potager;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,7 @@ public class PotagerManagerImpl implements PotagerManager {
 	PotagerDAO dao;
 
 	@Override
+	@Transactional
 	public void addPotager(Potager potager) {
 		dao.save(potager);
 	}
@@ -25,6 +28,7 @@ public class PotagerManagerImpl implements PotagerManager {
 	}
 
 	@Override
+	@Transactional
 	public void updatePotager(Potager potager) {
 		dao.save(potager);
 	}

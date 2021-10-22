@@ -11,10 +11,12 @@ import javax.persistence.OneToMany;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
 @NoArgsConstructor
+@ToString(exclude = {"lstPdcs", "lstActions"})
 public class Carre {
 	
 	@Id
@@ -28,7 +30,10 @@ public class Carre {
 	private Potager potager;
 	
 	@OneToMany(mappedBy = "carre")
-	private List<PlanteDansCarre> lstPdc = new ArrayList<>();
+	private List<PlanteDansCarre> lstPdcs = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "carre")
+	private List<Action> lstActions = new ArrayList<>();
 
 	public Carre(String typeDeSol, String typeExposition, Double surface, Potager potager) {
 		super();
@@ -37,6 +42,8 @@ public class Carre {
 		this.surface = surface;
 		this.potager = potager;
 	}
+
+	
 
 	
 
