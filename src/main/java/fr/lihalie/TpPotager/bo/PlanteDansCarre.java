@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,9 +24,11 @@ public class PlanteDansCarre {
 	private LocalDate dtRecolte; 
 
 	@ManyToOne
+	@JsonManagedReference
 	private Carre carre;
 	
 	@ManyToOne
+	@JsonManagedReference
 	private Plante plante;
 
 	public PlanteDansCarre(Integer nbPlan, LocalDate dtMisePlace, LocalDate dtRecolte, Carre carre, Plante plante) {
