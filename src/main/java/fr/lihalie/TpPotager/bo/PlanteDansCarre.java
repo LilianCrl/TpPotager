@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
+@JsonIdentityInfo(
+generator = ObjectIdGenerators.PropertyGenerator.class,
+property = "idPdc")
 public class PlanteDansCarre {
 	@Id
 	@GeneratedValue
@@ -24,11 +28,11 @@ public class PlanteDansCarre {
 	private LocalDate dtRecolte; 
 
 	@ManyToOne
-	@JsonManagedReference
+	//@JsonManagedReference
 	private Carre carre;
 	
 	@ManyToOne
-	@JsonManagedReference
+	//@JsonManagedReference
 	private Plante plante;
 
 	public PlanteDansCarre(Integer nbPlan, LocalDate dtMisePlace, LocalDate dtRecolte, Carre carre, Plante plante) {
@@ -37,7 +41,9 @@ public class PlanteDansCarre {
 		this.dtMisePlace = dtMisePlace;
 		this.dtRecolte = dtRecolte;
 		this.carre = carre;
+		this.carre.getLstPdcs().add(this);
 		this.plante = plante;
+		this.plante.getLstPdcs().add(this);
 	}
 	
 	
