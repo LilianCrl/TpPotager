@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -27,12 +30,15 @@ public class Carre {
 	private Double surface;
 	
 	@ManyToOne
+	@JsonManagedReference
 	private Potager potager;
 	
 	@OneToMany(mappedBy = "carre")
+	@JsonBackReference
 	private List<PlanteDansCarre> lstPdcs = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "carre")
+	@JsonBackReference
 	private List<Action> lstActions = new ArrayList<>();
 
 	public Carre(String typeDeSol, String typeExposition, Double surface, Potager potager) {
