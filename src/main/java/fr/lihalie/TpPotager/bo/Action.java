@@ -7,7 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,9 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
+@JsonIdentityInfo(
+generator = ObjectIdGenerators.PropertyGenerator.class,
+property = "idAction")
 public class Action {
 
 	@Id
@@ -24,11 +28,11 @@ public class Action {
 	private String evenement;
 
 	@ManyToOne
-	@JsonManagedReference
+	//@JsonManagedReference
 	private Carre carre;
 
 	@ManyToOne
-	@JsonManagedReference
+	//@JsonManagedReference
 	private Potager potager;
 
 	public Action(LocalDate dtAction, String evenement, Carre carre, Potager potager) {
@@ -36,7 +40,9 @@ public class Action {
 		this.dtAction = dtAction;
 		this.evenement = evenement;
 		this.carre = carre;
+		this.carre.getLstActions().add(this);
 		this.potager = potager;
+		this.potager.getLstActions().add(this);
 	}
 
 }

@@ -8,9 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -31,11 +28,11 @@ public class Potager {
 	
 	
 	@OneToMany(mappedBy = "potager")
-	@JsonBackReference
+	//@JsonBackReference
 	private List<Carre> lstCarres = new ArrayList<>();
 
 	@OneToMany(mappedBy = "potager")
-	@JsonBackReference
+	//@JsonBackReference
 	private List<Action> lstActions = new ArrayList<>();
 
 	public Potager(String localisation, String nomPotager, Double surface, String ville) {
