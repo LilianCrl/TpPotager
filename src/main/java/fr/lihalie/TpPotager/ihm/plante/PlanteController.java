@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import fr.lihalie.TpPotager.bll.plante.PlanteManager;
 import fr.lihalie.TpPotager.bo.Plante;
@@ -36,15 +37,27 @@ public class PlanteController {
 			 model.addAttribute("message","Ajout successful !!");			 
 		 return "/plante/indexPlante";
 	 }
-	@GetMapping("/ihm/lstplante")
-	public String indexLstplante( Model model) {
-		List<Plante> lstPlante;
-		lstPlante = manager.getAllPlantes();
-		List<String> lstTruc = new ArrayList<>();
-		lstTruc.add("moi");
-		lstTruc.add("Toi");
-		model.addAttribute("message" ,"Voici la liste des plantes");
-		return "/plante/indexLstplante";
+	 
+		// Display all  Plantes Method 1 : Using the Model Spring dependency
+		@GetMapping("/ihm/lstplante")
+		public String listPlantes( Model model) {
+			model.addAttribute("lstPlantes", manager.getAllPlantes());
+			return "/plante/indexLstplante";
 
-}
+	}
+		
+
+	 // Display all  Plantes Method 2 : using the ModelAndView spring dependency
+		@GetMapping("/rootPlantes")
+		public ModelAndView getAllPlantes(Model model) {
+			
+			ModelAndView mav = new ModelAndView("/plante/lstPlanteMethod2");
+			List<Plante> lstPlantes = new ArrayList<Plante>();
+			lstPlantes = manager.getAllPlantes();
+			mav.addObject("rootPlantes", lstPlantes);
+			return mav;
+	}
+		
+
+	
 }
