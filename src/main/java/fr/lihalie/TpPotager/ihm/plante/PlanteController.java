@@ -1,4 +1,7 @@
-package fr.lihalie.TpPotager.ihm;
+package fr.lihalie.TpPotager.ihm.plante;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -22,7 +25,7 @@ public class PlanteController {
 	@GetMapping("/ihm/plante")
 	public String indexPlante(PlanteForm planteForm, Model model) {
 		model.addAttribute("message","Entrez votre variete de plante");
-		return "indexPlante";
+		return "/plante/indexPlante";
 	}
 	
 	
@@ -31,8 +34,17 @@ public class PlanteController {
 		 Plante nouv = planteForm.getPlante();
 			 manager.addPlante(nouv);
 			 model.addAttribute("message","Ajout successful !!");			 
-		 return "indexPlante";
+		 return "/plante/indexPlante";
 	 }
-	
+	@GetMapping("/ihm/lstplante")
+	public String indexLstplante( Model model) {
+		List<Plante> lstPlante;
+		lstPlante = manager.getAllPlantes();
+		List<String> lstTruc = new ArrayList<>();
+		lstTruc.add("moi");
+		lstTruc.add("Toi");
+		model.addAttribute("message" ,"Voici la liste des plantes");
+		return "/plante/indexLstplante";
 
+}
 }
