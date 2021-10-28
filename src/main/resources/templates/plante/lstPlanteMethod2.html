@@ -16,7 +16,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="plante : ${lstPlantes}">
+			<tr th:each="plante : ${rootPlantes}">
 				<td th:text="${plante.nomPlante}"></td>
 				<td th:text="${plante.typePlante}"></td>
 				<td th:text="${plante.variete}"></td>
@@ -24,6 +24,5 @@
 			</tr>
 		</tbody>
 	</table>
-
 </body>
 </html>
