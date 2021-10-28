@@ -8,6 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -16,6 +22,9 @@ import lombok.ToString;
 @Data
 @NoArgsConstructor
 @ToString(exclude = {"lstCarres", "lstActions"})
+@JsonIdentityInfo(
+generator = ObjectIdGenerators.PropertyGenerator.class,
+property = "idPotager")
 public class Potager {
 
 	@Id
@@ -28,15 +37,15 @@ public class Potager {
 	
 	
 	@OneToMany(mappedBy = "potager")
-	//@JsonBackReference
+//	@OnDelete(action = OnDeleteAction.CASCADE)
+//	@JsonBackReference
 	private List<Carre> lstCarres = new ArrayList<>();
 
 	@OneToMany(mappedBy = "potager")
-	//@JsonBackReference
+//	@JsonBackReference
 	private List<Action> lstActions = new ArrayList<>();
 
 	public Potager(String localisation, String nomPotager, Double surface, String ville) {
-		super();
 		this.localisation = localisation;
 		this.nomPotager = nomPotager;
 		this.surface = surface;

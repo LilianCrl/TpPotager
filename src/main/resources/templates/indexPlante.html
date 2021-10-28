@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Variete plante</title>
+</head>
+<body>
+<h1 th:text="${message}"></h1>
+<form th:action="@{/add}" th:object="${planteForm}" method="post">
+
+    <label for="nomPlante">Nom de la plante</label>
+    <input type="text" th:field="*{plante.nomPlante}" id="nomPlante" placeholder="Nom de la plante">
+    
+    <label for="typePlante">type de plante</label>
+    <input type="text" th:field="*{plante.typePlante}" id="typePlante" placeholder="Type de plante">
+    
+    <label for="variete">Variete </label>
+    <input type="text" th:field="*{plante.variete}" id="variete" placeholder="Variete">
+    
+    <label for="surfaceOccupee">Surface Occupee</label>
+    <input type="number" th:field="*{plante.surfaceOccupee}" id="surfaceOccupee" placeholder="Surface Occupee">
+    
+    <input type="submit" value="Ajouter">   
+</form>
+</body>
+</html>

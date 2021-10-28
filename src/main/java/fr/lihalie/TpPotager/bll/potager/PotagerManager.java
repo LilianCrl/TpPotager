@@ -12,4 +12,6 @@ public interface PotagerManager   {
 	public void updatePotager(Potager potager);
 
 	public void deletePotager(Potager potager);
+	
+	public Potager getPotagerById(Integer idPotager);
 }

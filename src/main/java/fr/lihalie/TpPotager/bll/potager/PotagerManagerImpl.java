@@ -38,4 +38,9 @@ public class PotagerManagerImpl implements PotagerManager {
 		dao.delete(potager);
 	}
 
+	@Override
+	public Potager getPotagerById(Integer idPotager) {
+		return dao.getPotagerById(idPotager);
+	}
+
 }

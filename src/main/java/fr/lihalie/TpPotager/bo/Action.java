@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Data;
@@ -28,11 +29,11 @@ public class Action {
 	private String evenement;
 
 	@ManyToOne
-	//@JsonManagedReference
+//	@JsonManagedReference
 	private Carre carre;
 
 	@ManyToOne
-	//@JsonManagedReference
+//	@JsonManagedReference
 	private Potager potager;
 
 	public Action(LocalDate dtAction, String evenement, Carre carre, Potager potager) {

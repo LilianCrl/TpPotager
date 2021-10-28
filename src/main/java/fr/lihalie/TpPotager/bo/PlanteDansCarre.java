@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Data;
@@ -28,11 +29,11 @@ public class PlanteDansCarre {
 	private LocalDate dtRecolte; 
 
 	@ManyToOne
-	//@JsonManagedReference
+//	@JsonManagedReference
 	private Carre carre;
 	
 	@ManyToOne
-	//@JsonManagedReference
+//	@JsonManagedReference
 	private Plante plante;
 
 	public PlanteDansCarre(Integer nbPlan, LocalDate dtMisePlace, LocalDate dtRecolte, Carre carre, Plante plante) {
@@ -41,8 +42,8 @@ public class PlanteDansCarre {
 		this.dtMisePlace = dtMisePlace;
 		this.dtRecolte = dtRecolte;
 		this.carre = carre;
-		this.carre.getLstPdcs().add(this);
 		this.plante = plante;
+		this.carre.getLstPdcs().add(this);
 		this.plante.getLstPdcs().add(this);
 	}
 	
