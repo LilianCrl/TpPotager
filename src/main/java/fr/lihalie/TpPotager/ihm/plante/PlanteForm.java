@@ -1,4 +1,4 @@
-package fr.lihalie.TpPotager.ihm;
+package fr.lihalie.TpPotager.ihm.plante;
 
 import fr.lihalie.TpPotager.bo.Plante;
 import lombok.AllArgsConstructor;
