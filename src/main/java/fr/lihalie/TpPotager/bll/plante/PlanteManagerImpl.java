@@ -39,5 +39,21 @@ public class PlanteManagerImpl implements PlanteManager {
 		dao.delete(plante);
 	}
 
+	@Override
+	public List<Plante> getAllPlantesByType(String type) {
+		
+	return dao.getAllPlanteByType(type);
+	}
+
+	@Override
+	public List<Plante> getAllPlantesByName(String nom) {
+		return dao.getAllPlanteByName(nom);
+	}
+
+	@Override
+	public List<Plante> getAllPlantesByVariete(String variete) {
+		return dao.getAllPlanteByVariete(variete);
+	}
+
 	
 }

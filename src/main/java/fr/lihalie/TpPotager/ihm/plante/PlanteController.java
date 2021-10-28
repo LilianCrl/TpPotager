@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -42,6 +43,8 @@ public class PlanteController {
 		@GetMapping("/ihm/lstplante")
 		public String listPlantes( Model model) {
 			model.addAttribute("lstPlantes", manager.getAllPlantes());
+			
+			
 			return "/plante/indexLstplante";
 
 	}
@@ -57,6 +60,16 @@ public class PlanteController {
 			mav.addObject("rootPlantes", lstPlantes);
 			return mav;
 	}
+		
+		
+		@GetMapping("/ihm/lstplante/{filtre}")
+		public String listPlantesType(Model model , @PathVariable ("filtre") String filtre ){
+			model.addAttribute("lstPlanteType", manager.getAllPlantesByType(filtre));
+			model.addAttribute("lstPlanteName", manager.getAllPlantesByName(filtre));
+			model.addAttribute("lstPlanteVariete", manager.getAllPlantesByVariete(filtre));
+			return "plante/lstplantetype";
+			
+		}
 		
 
 	
