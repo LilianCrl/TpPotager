@@ -14,5 +14,9 @@ public interface PlanteManager {
 
 	public void deletePlante(Plante plante);
 	
+	public List<Plante> getAllPlantesByType(String type);
 
+	public List<Plante> getAllPlantesByName(String nom);
+	
+	public List<Plante> getAllPlantesByVariete(String variete);
 }
