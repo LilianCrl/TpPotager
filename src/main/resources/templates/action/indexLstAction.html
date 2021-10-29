@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>Mes Action</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Evenement</th>
+				<th>Potager</th>
+				<th>Carre</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="action : ${lstActions}">
+				<td th:text="${action.dtAction}"></td>
+				<td th:text="${action.evenement}"></td>
+				<td th:text="${action.potager.nomPotager}"></td>
+				<td th:text="${action.carre.typeExposition}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
