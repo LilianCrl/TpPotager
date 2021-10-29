@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<link th:href="@{/styles/style.css}" rel="stylesheet" />
+<title>Le potager facile</title>
 </head>
+
 <body>
-	<h2>Mes plantes</h2>
+	<header>
+		<a href="#" th:href="@{/ihm/Home}" class="bann">
+			<h1>Le potager facile</h1>
+			<h2>Gestionnaire de potager</h2>
+		</a>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="#" th:href="@{/ihm/potager}">Ajouter un Potager</a></li>
+			<li><a th:href="@{/ihm/plante}">Ajouter une Plante</a></li>
+			<li><a th:href="@{/ihm/carre}">Ajouter un carre</a></li>
+			<li><a th:href="@{/ihm/action}">Ajouter une action</a></li>
+			<li><a th:href="@{/ihm/pdc}">Ajouter P.D.C</a></li>
+			<li><a th:href="@{/ihm/lstplante}">Afficher une Plantes</a></li>
+			<li><a th:href="@{/ihm/lstpotager}">Afficher une Plantes</a></li>
+			
+		</ul>
+	</nav>	<h2>Mes plantes</h2>
 	
 <!-- 	<label for="filtre">filtre :</label> -->
 
