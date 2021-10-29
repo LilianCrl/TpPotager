@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/styles/style.css}" rel="stylesheet" />
+<title>Le potager facile</title>
+</head>
+
+<body>
+	<header>
+		<a href="#" th:href="@{/ihm/Home}" class="bann">
+			<h1>Le potager facile</h1>
+			<h2>Gestionnaire de potager</h2>
+		</a>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="#" th:href="@{/ihm/Home}">Accueil</a></li>
+			<li><a href="#" th:href="@{/ihm/potager}">Potager</a></li>
+			<li><a th:href="@{/ihm/plante}">Plantes</a></li>
+		</ul>
+	</nav>
+
+	Vous pouvez ajouter un potager. Vous pouvez aussi ajouter une nouvelle
+	plante à votre collection.
+
+</body>
+</html>
