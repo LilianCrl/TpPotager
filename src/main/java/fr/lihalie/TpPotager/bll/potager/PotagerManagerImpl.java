@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import fr.lihalie.TpPotager.bo.Carre;
 import fr.lihalie.TpPotager.bo.Potager;
 import fr.lihalie.TpPotager.dal.PotagerDAO;
 
@@ -42,5 +43,10 @@ public class PotagerManagerImpl implements PotagerManager {
 	public Potager getPotagerById(Integer idPotager) {
 		return dao.getPotagerById(idPotager);
 	}
+
+	public List<Carre> getAllCarreFromPotager(Potager potager) {
+		return potager.getLstCarres();
+	}
+
 
 }

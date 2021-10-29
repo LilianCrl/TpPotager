@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 th:text="${message}"></h1>
+<form th:action="@{/ihm/addaction}" th:object="${actionForm}" method="post">
+
+  
+    <label for="dtAction">Date d'action : </label>
+    <input type="date" th:field="*{action.dtAction}" id="dtAction" placeholder="Date d'action" style="margin-bottom: 20px">
+    <br>
+    
+  <label for="evenement">Evenement : </label>
+    <input type="text" th:field="*{action.evenement}" id="evenement" placeholder="Evenement" style="margin-bottom: 20px">
+    <br>
+    
+	<label for="potager">Choix du  potager  ? </label>
+	<select th:field="*{potager}" name="potager" id="potager">
+	<option th:each="potager : ${potagers}" th:value="${{potager.idPotager}}"  th:text="${potager.nomPotager}" ></option>
+    </select>
+    <br>
+    
+    <label for="carre">Choix du carre ? </label>
+	<select th:field="*{carre}" name="carre" id="carre">
+	<option th:each="carre : ${carres}" th:value="${{carre.idCarre}}"  th:text="${carre.typeExposition}" ></option>
+    </select>
+    <br>
+    
+    <input type="submit" value="Ajouter" style="margin-top: 20px">   
+</form>
+</body>
+</html>

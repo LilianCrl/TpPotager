@@ -2,6 +2,7 @@ package fr.lihalie.TpPotager.bll.potager;
 
 import java.util.List;
 
+import fr.lihalie.TpPotager.bo.Carre;
 import fr.lihalie.TpPotager.bo.Potager;
 
 public interface PotagerManager   {
@@ -14,4 +15,7 @@ public interface PotagerManager   {
 	public void deletePotager(Potager potager);
 	
 	public Potager getPotagerById(Integer idPotager);
+	
+	public List<Carre> getAllCarreFromPotager(Potager potager);
+	
 }
