@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+header {
+	background-color: darkgreen;
+	text-align: center;
+/* 	background-image: url(th:href="@{/img/potager.png}"); */
+/* 	opacity:0.5; */
+text-decoration: none;
+}
+
+nav {
+	background-color: darkgreen;
+}
+
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+}
+
+li {
+  display: inline;
+  float: left;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+li a:hover:not(.active) {
+background-color: #ff9900;
+}
+
+.active {
+background-color: #04AA6D;
+}
+
+a.bann {
+	color: yellow;
+	text-decoration: none;
+}
