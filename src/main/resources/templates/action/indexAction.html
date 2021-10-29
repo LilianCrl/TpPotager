@@ -8,8 +8,8 @@
 <h1 th:text="${message}"></h1>
 <form th:action="@{/ihm/addaction}" th:object="${actionForm}" method="post">
 
-  
-    <label for="dtAction">Date d'action : </label>
+
+    <label for="dtAction">Date d'action: </label>
     <input type="date" th:field="*{action.dtAction}" id="dtAction" placeholder="Date d'action" style="margin-bottom: 20px">
     <br>
     

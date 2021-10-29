@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -44,17 +45,30 @@ public class ActionController {
 	}
 
 	@PostMapping("/ihm/addaction")
-	public String addAction(@Valid ActionForm actionForm, Model model, Potager potager, Carre carre) {
+	public String addAction(@Valid ActionForm actionForm, BindingResult errors, Model model, Potager potager, Carre carre) {
 		Action action = actionForm.getAction();
 		action.setPotager(potager);
+		
+		// TODO: set the wright Carre to an action:  Need result from AJAX Request of GetMaping. 
 		action.setCarre(carre);
 //		for (Carre c: potager.getLstCarres()) {
 //			if(c.getIdCarre()==carre.getIdCarre()) {
 //				action.setCarre(carre);
+//			}else {
+//				return"redirect:/action/indexError";
 //			}
 //		}
 		return "/action/indexAction";
 	}
+	
+	@GetMapping("/ihm/lstaction")
+	public String listAction( Model model) {
+		model.addAttribute("lstActions", managerAction.getAllAction());
+			
+		return "/action/indexLstAction";
+
+}
+	
 	
 
 }
