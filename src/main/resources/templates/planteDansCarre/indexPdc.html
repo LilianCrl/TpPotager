@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 th:text="${message}"></h1>
+<form th:action="@{/ihm/addpdc}" th:object="${pdcForm}" method="post">
+
+    <label for="nbPlan">Nombre de plan : </label>
+    <input type="number" th:field="*{pdc.nbPlan}" id="nbPlan" placeholder="Nombre de plan" style="margin-bottom: 20px">
+    <br>
+  
+    <label for="dtMisePlace">Date de mise en place : </label>
+    <input type="date" th:field="*{pdc.dtMisePlace}" id="dtMisePlace" placeholder="Date de mise en place" style="margin-bottom: 20px">
+    <br>
+    
+    <label for="dtRecolte">Date de recolte : </label>
+    <input type="date" th:field="*{pdc.dtRecolte}" id="dtRecolte" placeholder="Date de recolte" style="margin-bottom: 20px">
+    <br>
+    
+	<label for="plante">Quelle plante ajouter  ? </label>
+	<select th:field="*{plante}" name="plante" id="plante">
+	<option th:each="plante : ${plantes}" th:value="${{plante.idPlante}}"  th:text="${plante.nomPlante}" ></option>
+    </select>
+    <br>
+    
+    <label for="carre">Dans quel carre ajouter  ? </label>
+	<select th:field="*{carre}" name="carre" id="carre">
+	<option th:each="carre : ${carres}" th:value="${{carre.idCarre}}"  th:text="${carre.typeExposition}" ></option>
+    </select>
+    <br>
+    
+    <input type="submit" value="Ajouter" style="margin-top: 20px">   
+</form>
+</body>
+</html>
+
+<!-- private Integer idPdc; -->
+<!-- 	private Integer nbPlan; -->
+<!-- 	private LocalDate dtMisePlace; -->
+<!-- 	private LocalDate dtRecolte;  -->
