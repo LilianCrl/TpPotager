@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>Mes potagers</h2>	
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Localisation</th>
+				<th>Nom</th>
+				<th>Surface</th>
+				<th>Ville</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="potager : ${lstPotager}">
+				<td th:text="${potager.localisation}"></td>
+				<td th:text="${potager.nomPotager}"></td>
+				<td th:text="${potager.surface}"></td>
+				<td th:text="${potager.ville}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 th:text="${message}"></h1>
+<form th:action="@{/ihm/addCarre}" th:object="${carreForm}" method="post">
+
+    <label for="typeDeSol">Type de sol : </label>
+    <input type="text" th:field="*{carre.typeDeSol}" id="typeDeSol" placeholder="Type de sol" style="margin-bottom: 20px">
+    <br>
+  
+    <label for="typeExposition">Exposition : </label>
+    <input type="text" th:field="*{carre.typeExposition}" id="typeExposition" placeholder="Type d'exposition" style="margin-bottom: 20px">
+    <br>
+    
+    <label for="surface">Surface :</label>
+    <input type="text" th:field="*{carre.surface}" id="surface" placeholder="surface" style="margin-bottom: 20px">
+    <br>
+    
+	<label for="potager">Dans quel potager ? </label>
+	<select th:field="*{potager}" name="potager" id="potager">
+	<option th:each="potager : ${potagers}" th:value="${{potager.idPotager}}"  th:text="${potager.nomPotager}" ></option>
+    </select>
+    <br>
+    
+    <input type="submit" value="Ajouter" style="margin-top: 20px">   
+</form>
+</body>
+</html>
