@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import fr.lihalie.TpPotager.bo.Carre;
 import fr.lihalie.TpPotager.bo.Potager;
 
 public interface PotagerDAO extends CrudRepository<Potager, Integer> {

@@ -25,7 +25,7 @@ public class CarreController {
 	PotagerManager managerPotager;
 	
 	@GetMapping("/ihm/carre")
-	public String indexPotager(CarreForm carreForm, Model model) {
+	public String getCarreForm(CarreForm carreForm, Model model) {
 		model.addAttribute("message","Entrez votre carre");
 		model.addAttribute("potagers", managerPotager.getAllPotager());
 		
